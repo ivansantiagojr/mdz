@@ -1,0 +1,31 @@
+[project]
+name = "mdz"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "ivansantiagojr",email = "ivansantiago.junior@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+]
+
+[tool.poetry]
+include = [
+    { path = "src/", format = "sdist" },
+    { path = "mdz/*.so", format = "wheel" }
+]
+
+[tool.poetry.build]
+script = "build.py"
+
+[tool.poetry.group.dev.dependencies]
+ziggy-pydust = "^0.25.0"
+pytest = "^8.3.5"
+
+[tool.pydust]
+self_managed = true
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0", "ziggy-pydust==0.25.0"]
+build-backend = "poetry.core.masonry.api"
