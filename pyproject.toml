@@ -20,12 +20,15 @@ include = [
 script = "build.py"
 
 [tool.poetry.group.dev.dependencies]
-ziggy-pydust = "^0.25.0"
 pytest = "^8.3.5"
+ziggy-pydust = {git = "https://github.com/ivansantiagojr/ziggy-pydust", rev = "allow-third-party-modules"}
 
 [tool.pydust]
 self_managed = true
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0", "ziggy-pydust==0.25.0"]
+requires = [
+    "poetry-core>=2.0.0,<3.0.0",
+    "ziggy-pydust @ git+https://github.com/ivansantiagojr/ziggy-pydust#allow-third-party-modules"
+    ]
 build-backend = "poetry.core.masonry.api"
