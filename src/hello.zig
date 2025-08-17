@@ -6,7 +6,7 @@ const fragments = @import("zmd").html.DefaultFragments;
 
 const root = @This();
 
-pub fn hello() !py.PyString(root) {
+pub fn hello() !py.PyString {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator();
 
@@ -30,7 +30,7 @@ pub fn hello() !py.PyString(root) {
 
     const html = try zmd.toHtml(fragments);
 
-    return py.PyString(root).create(html);
+    return py.PyString.create(html);
 }
 
 comptime {
